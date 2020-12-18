@@ -21,7 +21,7 @@ namespace AdventOfCodeUnitTests
             var result = dayFour.Solve(passports);
 
             // Assert
-            result.Should().BeOfType(typeof(int)).And.BeGreaterThan(0);
+            result.Item1.Should().BeOfType(typeof(int)).And.BeGreaterThan(0).And.Be(123);
         }
 
         [Fact]
@@ -35,7 +35,7 @@ namespace AdventOfCodeUnitTests
             var result = dayFour.Solve(passports);
 
             // Assert
-            result.Should().BeOfType(typeof(int)).And.Be(4);
+            result.Item1.Should().BeOfType(typeof(int)).And.Be(4);
         }
 
         [Fact]
@@ -49,7 +49,7 @@ namespace AdventOfCodeUnitTests
             var result = dayFour.Solve(passports);
 
             // Assert
-            result.Should().BeOfType(typeof(int)).And.Be(0);
+            result.Item1.Should().BeOfType(typeof(int)).And.Be(0);
         }
     }
 }

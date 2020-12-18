@@ -56,9 +56,11 @@ namespace AdventOfCode.Main.DayFour
             return passports.ToList();
         }
 
-        public int Solve(IEnumerable<string> correctPassports)
+        public Tuple<int, List<bool>> Solve(IEnumerable<string> correctPassports)
         {
             var keyValuePairs = new Dictionary<string, string>();
+
+            var listOfBool = new List<bool>();
 
             foreach (var passport in correctPassports)
             {
@@ -74,14 +76,16 @@ namespace AdventOfCode.Main.DayFour
                     keyValuePairs.ContainsKey("hgt"))
                 {
 
-                    ValidateMembers(keyValuePairs);
+                    var isValid = ValidateMembers(keyValuePairs);
+
+                    listOfBool.Add(isValid);
                 }
             }
 
-            return ValidCount;
+            return new Tuple<int, List<bool>>(ValidCount, listOfBool);
         }
 
-        private void ValidateMembers(Dictionary<string, string> keyValuePairs)
+        private bool ValidateMembers(Dictionary<string, string> keyValuePairs)
         {
             keyValuePairs.TryGetValue("byr", out var birthYear);
             keyValuePairs.TryGetValue("iyr", out var issueYear);
@@ -95,9 +99,9 @@ namespace AdventOfCode.Main.DayFour
             var issueYearValid = ValidateYears(issueYear, 2010, 2020);
             var expirationYearValid = ValidateYears(expirationYear, 2020, 2030);
             var heightValid = ValidateHeight(height);
-            var hairColourValid = ValidateHairColour(hairColour);
+            var hairColourValid = ValidateRegex(hairColour, "(#[0-9a-f]{6})");
             var eyeColourValid = ValidateEyeColour(eyeColour);
-            var passportIdValid = ValidatePassportId(passportId);
+            var passportIdValid = ValidateRegex(passportId, "([0-9]{9})");
 
             var list = new List<bool>
             {
@@ -113,16 +117,6 @@ namespace AdventOfCode.Main.DayFour
             if (!list.Contains(false))
             {
                 ValidCount++;
-            }
-        }
-
-        private bool ValidatePassportId(string passportId)
-        {
-            var re = new Regex(@"([0-9]{9})");
-            var result = re.Match(passportId);
-
-            if (result.Success)
-            {
                 return true;
             }
 
@@ -139,10 +133,10 @@ namespace AdventOfCode.Main.DayFour
             return false;
         }
 
-        private bool ValidateHairColour(string hairColour)
+        private bool ValidateRegex(string input, string regex)
         {
-            var re = new Regex(@"(#[0-9a-f]{6})");
-            var result = re.Match(hairColour);
+            var re = new Regex($@"{regex}");
+            var result = re.Match(input);
 
             if (result.Success)
             {
@@ -154,7 +148,7 @@ namespace AdventOfCode.Main.DayFour
 
         private bool ValidateHeight(string height)
         {
-            var re = new Regex(@"(\d+)([a-zA-Z]+)");
+            var re = new Regex(@"(\d+)([a-zA-Z]{2})");
             var result = re.Match(height);
 
             if (result.Success)
@@ -165,7 +159,7 @@ namespace AdventOfCode.Main.DayFour
 
                 if (didConvert)
                 {
-                    if (alphaPart.ToUpper() == "cm".ToUpper())
+                    if (alphaPart == "cm")
                     {
                         if (number >= 150 && number <= 193)
                         {
@@ -173,7 +167,7 @@ namespace AdventOfCode.Main.DayFour
                         }
                     }
 
-                    if (alphaPart.ToUpper() == "in".ToUpper())
+                    if (alphaPart == "in")
                     {
                         if (number >= 59 && number <= 76)
                         {
