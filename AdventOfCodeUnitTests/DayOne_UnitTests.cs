@@ -6,7 +6,7 @@ namespace AdventOfCodeUnitTests
 {
     public class DayOne_UnitTests
     {
-        private const string fileLocation = "D:\\adventOfCode\\2020\\dayone.txt";
+        private const string fileLocation = "D:\\adventOfCode\\2020\\inputs\\dayone.txt";
 
         [Fact]
         public void Test1()

@@ -6,9 +6,9 @@ namespace AdventOfCodeUnitTests
 {
     public class DayFour_UnitTests
     {
-        private const string fileLocation = "D:\\adventOfCode\\2020\\dayfour.txt";
-        private const string fileLocationValidExample = "D:\\adventOfCode\\2020\\dayfourvalidexample.txt";
-        private const string fileLocationInvalidExample = "D:\\adventOfCode\\2020\\dayfourinvalidexample.txt";
+        private const string fileLocation = "D:\\adventOfCode\\2020\\inputs\\dayfour.txt";
+        private const string fileLocationValidExample = "D:\\adventOfCode\\2020\\inputs\\dayfourvalidexample.txt";
+        private const string fileLocationInvalidExample = "D:\\adventOfCode\\2020\\inputs\\dayfourinvalidexample.txt";
 
         [Fact]
         public void Test1()
