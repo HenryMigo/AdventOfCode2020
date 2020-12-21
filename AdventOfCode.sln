@@ -7,7 +7,23 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode.Main", "Advent
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCodeUnitTests", "AdventOfCodeUnitTests\AdventOfCodeUnitTests.csproj", "{DEE61726-D63A-42BF-A796-641C81E9A1B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.ConsoleApp", "AdventOfCode.Console\AdventOfCode.ConsoleApp.csproj", "{0F813997-4826-4806-9A70-71B45E2C370E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode.ConsoleApp", "AdventOfCode.Console\AdventOfCode.ConsoleApp.csproj", "{0F813997-4826-4806-9A70-71B45E2C370E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Inputs", "Inputs", "{6BDEBE8D-8336-412D-8A68-CCE732E6B9FB}"
+	ProjectSection(SolutionItems) = preProject
+		Inputs\dayfive.txt = Inputs\dayfive.txt
+		Inputs\dayfour.txt = Inputs\dayfour.txt
+		Inputs\dayfourinvalidexample.txt = Inputs\dayfourinvalidexample.txt
+		Inputs\dayfourvalidexample.txt = Inputs\dayfourvalidexample.txt
+		Inputs\dayone.txt = Inputs\dayone.txt
+		Inputs\dayseven.txt = Inputs\dayseven.txt
+		Inputs\daysix.txt = Inputs\daysix.txt
+		Inputs\daythree.txt = Inputs\daythree.txt
+		Inputs\daytwo.txt = Inputs\daytwo.txt
+		Inputs\daytwoExample.txt = Inputs\daytwoExample.txt
+		Inputs\metalheddCodeOutput.txt = Inputs\metalheddCodeOutput.txt
+		Inputs\MyCodeOutput.txt = Inputs\MyCodeOutput.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
